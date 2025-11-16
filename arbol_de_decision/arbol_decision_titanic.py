@@ -27,8 +27,8 @@ print("1. CARGANDO DATOS DEL TITANIC")
 print("="*80)
 
 # Rutas de los archivos
-ruta_train = r"C:\Users\santi\OneDrive\Desktop\Quinto ano\Sistema de soporte para la toma de decisiones\Trabajos practicos\train.csv"
-ruta_test = r"C:\Users\santi\OneDrive\Desktop\Quinto ano\Sistema de soporte para la toma de decisiones\Trabajos practicos\test.csv"
+ruta_train = r"..\data\train.csv"
+ruta_test = r"..\data\test.csv"
 
 # Cargar datasets
 df_train = pd.read_csv(ruta_train)
