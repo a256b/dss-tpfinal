@@ -3,9 +3,14 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import joblib
 
-def prediccion():
-    model=load_model("../red_neuronal_artificial/rna_titanic.h5")
+@st.cache_resource
+def cargar_modelo():
+    model=load_model("../red_neuronal_artificial/rna_titanic.h5",compile=False)
     scaler=joblib.load("../red_neuronal_artificial/rna_scaler.pkl")
+    return model, scaler
+
+def prediccion():
+    model, scaler=cargar_modelo()
     
     st.write("Complete los datos del pasajero:")
 
