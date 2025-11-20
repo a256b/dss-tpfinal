@@ -200,3 +200,9 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+arbol_de_decision/submission_arbol_decision.csv
+arbol_de_decision/04_arbol_decision.png
+arbol_de_decision/03_feature_importance.png
+arbol_de_decision/02b_curvas_roc.png
+arbol_de_decision/02_matriz_confusion.png
+analisis_y_preprocesamiento/01_eda_titanic.png
