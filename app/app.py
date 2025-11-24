@@ -1,5 +1,6 @@
 import streamlit as st
 import modelo_rna as rna
+import modelo_ensamble as ensamble
 
 st.title("Trabajo Práctico Final 2025")
 st.header("Modelo de Predicción de Supervivencia en el Titanic")
@@ -19,7 +20,7 @@ if opcion=="Árbol de decisión":
     pass # Reemplazar esta línea con la llamada a la predicción de este modelo
 
 if opcion=="Método de ensamble":
-    pass # Reemplazar esta línea con la llamada a la predicción de este modelo
+    ensamble.prediccion()
 
 if opcion=="Red neuronal artificial":
     rna.prediccion()
