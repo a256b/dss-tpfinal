@@ -18,10 +18,7 @@ def cargar_modelo():
 
 
 def obtener_coeficientes(model):
-    feature_names = [
-        "Pclass", "Sex", "Age", "SibSp", "Parch",
-        "Fare", "Embarked_Q", "Embarked_S"
-    ]
+    feature_names = model.named_steps["preproc"].get_feature_names_out()
     coefs = model.named_steps["clf"].coef_[0]
     intercept = model.named_steps["clf"].intercept_[0]
     return feature_names, coefs, intercept
@@ -87,12 +84,12 @@ def prediccion():
 
     # DataFrame con mismas columnas del entrenamiento
     datos = pd.DataFrame([{
-        "Pclass": pclass,
-        "Sex": sex_value,
         "Age": age,
         "SibSp": sibsp,
         "Parch": parch,
         "Fare": fare,
+        "Pclass": pclass,
+        "Sex": sex_value,
         "Embarked_Q": embarked_q,
         "Embarked_S": embarked_s
     }])
@@ -109,9 +106,9 @@ def prediccion():
         st.write(f"Threshold usado: **{threshold_option:.2f}**")
 
         if pred == 1:
-            st.success("➡ El modelo predice que este pasajero **Sobrevive**.")
+            st.success("Probabilidad de supervivencia: **Sobrevive**.")
         else:
-            st.error("➡ El modelo predice que este pasajero **NO sobrevive**.")
+            st.error("Probabilidad de supervivencia: **NO sobrevive**.")
 
         st.write("## Explicación del modelo (impacto de las variables)")
         graficar_contribuciones(model, datos)
